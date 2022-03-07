@@ -4,12 +4,20 @@ const ArticleCard = ({ article }) => {
   const date = new Date(created_at);
   console.log(`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`);
   return (
-    <article>
+    <article className="article-card">
       <h4>{title}</h4>
-      <p>{votes}</p>
-      <p>{author}</p>
-      <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
-      <p>{comment_count}</p>
+      <div className="article-card-lower-bar">
+        <div className="article-card-lower-bar article-card-votes">
+          <p>{votes}</p>
+        </div>
+        <div className="article-card-lower-bar article-card-creation">
+          <p>{author}</p>
+          <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
+        </div>
+        <div className="article-card-lower-bar article-card-comments">
+          <p>{comment_count}</p>
+        </div>
+      </div>
     </article>
   );
 };
