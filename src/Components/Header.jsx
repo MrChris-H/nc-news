@@ -8,6 +8,7 @@ const Header = () => {
             <img
               className="head-bar-button-img"
               src="https://cdn-icons-png.flaticon.com/512/21/21601.png"
+              alt="Logo/home button"
             ></img>
           </Link>
         </div>
@@ -17,11 +18,13 @@ const Header = () => {
             <img
               className="head-bar-button-img"
               src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+              alt="account button"
             ></img>
             <img
               className="head-bar-button-img"
               id="head-bar-button-arrow"
               src="https://cdn-bnogf.nitrocdn.com/aWZedTmOfQOvZtJlWuPorsweqUqMoGnA/assets/static/optimized/rev-977aead/wp-content/uploads/menu-arrow-down.png"
+              alt="account button"
             ></img>
           </div>
         </div>
