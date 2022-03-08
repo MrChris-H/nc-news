@@ -166,9 +166,59 @@ h4 {
   align-items: center;
 }
 
-#flex-bar-center {
-  background-color: rgb(212, 103, 103);
+.flex-bar-center {
   flex: 1 1 auto;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#section-comments-list {
+  background-color: white;
+  margin: 1rem 0px;
+  margin-bottom: 0;
+  box-shadow: 0px 1px #888888;
+}
+
+.comment-card-body,
+.comment-card p {
+  margin: 0;
+}
+.comment-card-body {
+  font-size: 0.8rem;
+}
+.comment-card {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  border-bottom: rgba(0, 0, 0, 0.185) solid 1px;
+}
+.comment-card-lower-bar {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: flex-end;
+  font-size: 0.7rem;
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+.comment-card-avatar {
+  margin-right: 0.3rem;
+  padding-right: 0.2rem;
+  margin-top: 0.3rem;
+}
+.comment-card-avatar-img {
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 50px;
+  object-fit: cover;
 }

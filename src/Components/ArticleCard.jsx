@@ -11,14 +11,14 @@ const ArticleCard = ({ article }) => {
 
       {/* <p>{topic}</p> */}
       <div className="article-card-lower-bar">
-        <div className="article-card-lower-bar article-card-votes">
+        <div className="article-card-lower-bar comments-card-votes">
           <p>{votes}</p>
         </div>
-        <div className="article-card-lower-bar article-card-creation">
+        <div className="flex-bar-center">
           <p>{author}</p>
           <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
         </div>
-        <div className="article-card-lower-bar article-card-comments">
+        <div className="article-card-lower-bar comments-card-date">
           <p>{comment_count}</p>
         </div>
       </div>
