@@ -2,7 +2,6 @@ const ArticleCard = ({ article }) => {
   const { title, topic, author, created_at, votes, comment_count } = article;
 
   const date = new Date(created_at);
-  console.log(`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`);
   return (
     <article className="article-card">
       <h4>{title}</h4>
