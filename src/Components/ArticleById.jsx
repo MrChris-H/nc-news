@@ -3,7 +3,7 @@ import { getArticle, getArticles } from "../api";
 import { useParams } from "react-router-dom";
 
 const ArticleByID = () => {
-  [article, setArticle] = useState({});
+  const [article, setArticle] = useState({});
   const { articleId } = useParams();
   useEffect(() => {
     getArticle(articleId).then(({ article }) => {
