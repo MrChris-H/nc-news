@@ -8,7 +8,6 @@ export const getArticles = (topic) => {
   return newsApi
     .get(`/articles`, { params: { topic: topic } })
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 };
@@ -17,4 +16,13 @@ export const getTopics = () => {
   return newsApi.get(`/topics`).then(({ data }) => {
     return data;
   });
+};
+
+export const getArticle = (id) => {
+  return newsApi
+    .get(`/articles`, { params: { article_id: id } })
+    .then((data) => {
+      console.log(data);
+      return data;
+    });
 };

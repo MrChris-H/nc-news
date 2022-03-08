@@ -5,6 +5,7 @@ const ArticleCard = ({ article }) => {
   return (
     <article className="article-card">
       <h4>{title}</h4>
+      <p>{topic}</p>
       <div className="article-card-lower-bar">
         <div className="article-card-lower-bar article-card-votes">
           <p>{votes}</p>
