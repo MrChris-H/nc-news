@@ -1,10 +1,15 @@
+import { Link } from "react-router-dom";
 const ArticleCard = ({ article }) => {
   const { title, topic, author, created_at, votes, comment_count } = article;
 
   const date = new Date(created_at);
   return (
     <article className="article-card">
-      <h4>{title}</h4>
+      <Link to={`/article/${article.article_id}`}>
+        <h4>{title}</h4>
+      </Link>
+
+      {/* <p>{topic}</p> */}
       <div className="article-card-lower-bar">
         <div className="article-card-lower-bar article-card-votes">
           <p>{votes}</p>
