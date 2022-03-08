@@ -1,9 +1,9 @@
-const Template = () => {
+const NavMobile = () => {
   return (
     <div>
-      <p>articles</p>
+      <p>Nav</p>
     </div>
   );
 };
 
-export default Template;
+export default NavMobile;
