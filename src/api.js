@@ -19,10 +19,7 @@ export const getTopics = () => {
 };
 
 export const getArticle = (id) => {
-  return newsApi
-    .get(`/articles`, { params: { article_id: id } })
-    .then((data) => {
-      console.log(data);
-      return data;
-    });
+  return newsApi.get(`/articles/${id}`).then(({ data }) => {
+    return data;
+  });
 };
