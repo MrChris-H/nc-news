@@ -5,13 +5,17 @@ import { useParams } from "react-router-dom";
 const ArticleByID = () => {
   const [article, setArticle] = useState({});
   const { articleId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getArticle(articleId).then(({ article }) => {
       setArticle(article);
+      setIsLoading(false);
     });
   }, []);
 
   const date = new Date(article.created_at);
+  if (isLoading) return <p>Loading ...</p>;
+
   return (
     <article className="article-card">
       <h2>{article.title}</h2>
