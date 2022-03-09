@@ -267,7 +267,7 @@ h4 {
 .article-comments-img {
   width: 30px;
   margin-right: 0.2rem;
-}
-.comments-card-date {
+} 
+.article-card-lower-bar {
   align-items: center;
 }

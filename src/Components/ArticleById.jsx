@@ -41,6 +41,10 @@ const ArticleByID = () => {
             <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
           </div>
           <div className="article-card-lower-bar article-card-comments">
+            <img
+              src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
+              className="article-comments-img"
+            ></img>
             <p>{article.comment_count}</p>
           </div>
         </div>
