@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { postComment } from "../api";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
-const CommentPost = ({ articleId }) => {
+const CommentPost = ({ articleId, commented }) => {
+  const { loggedIn } = useContext(UserContext);
+  console.log(loggedIn);
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment !== "") {
-      postComment("jessjelly", comment, articleId).then((added) => {});
+      postComment(loggedIn.username, comment, articleId).then((added) => {
+        commented();
+      });
     }
 
     setComment("");
@@ -18,7 +24,7 @@ const CommentPost = ({ articleId }) => {
       <div className="comment-post-input">
         <div className="comment-post-avatar">
           <img
-            src="https://static-cdn.jtvnw.net/jtv_user_pictures/71b9faed-de95-4263-8c3f-70bf3dac28b6-profile_image-300x300.png"
+            src={loggedIn.avatar_url}
             className="comment-card-avatar-img"
           ></img>
         </div>
