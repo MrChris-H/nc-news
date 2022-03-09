@@ -35,3 +35,14 @@ export const getUser = (username) => {
     return data;
   });
 };
+
+export const postComment = (username, comment, articleId) => {
+  return newsApi
+    .post(`articles/${articleId}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
