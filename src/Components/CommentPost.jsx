@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { postComment } from "../api";
 
-const CommentPost = () => {
+const CommentPost = ({ articleId }) => {
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    if (comment !== "") {
+      postComment("jessjelly", comment, articleId).then((added) => {});
+    }
+
     setComment("");
   };
 
