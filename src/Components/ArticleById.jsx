@@ -36,7 +36,7 @@ const ArticleByID = () => {
           </div>
         </div>
       </article>
-      <CommentPost />
+      <CommentPost articleId={articleId} />
       <CommentsList articleId={articleId} />
     </section>
   );
