@@ -222,3 +222,22 @@ h4 {
   width: 50px;
   object-fit: cover;
 }
+#section-comment-post {
+  background-color: #ffffff;
+}
+.comment-post {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.comment-post-avatar {
+  margin-right: 0.3rem;
+  padding-right: 0.2rem;
+}
+
+.comment-post-avatar {
+  margin-right: 0.3rem;
+  padding-right: 0.2rem;
+}
