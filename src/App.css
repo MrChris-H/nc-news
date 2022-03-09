@@ -263,3 +263,11 @@ h4 {
 .hidden {
   display: none;
 }
+
+.article-comments-img {
+  width: 30px;
+  margin-right: 0.2rem;
+}
+.comments-card-date {
+  align-items: center;
+}
