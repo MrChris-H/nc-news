@@ -222,15 +222,17 @@ h4 {
   width: 50px;
   object-fit: cover;
 }
-#section-comment-post {
+#form-comment-post {
   background-color: #ffffff;
 }
-.comment-post {
+.comment-post-input {
   display: flex;
   flex-direction: row;
   width: auto;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  align-items: center;
+  padding-right: 5%;
 }
 .comment-post-avatar {
   margin-right: 0.3rem;
@@ -240,4 +242,20 @@ h4 {
 .comment-post-avatar {
   margin-right: 0.3rem;
   padding-right: 0.2rem;
+}
+
+.comment-post-content {
+  flex: 1 1 auto;
+}
+
+#comment {
+  width: 100%;
+  border: none;
+  border-bottom: 1px black solid;
+}
+
+.comment-post-submit {
+  padding-bottom: 10px;
+  padding-right: 2rem;
+  text-align: right;
 }
