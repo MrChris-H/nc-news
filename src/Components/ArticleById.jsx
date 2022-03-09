@@ -3,6 +3,7 @@ import { getArticle } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import CommentPost from "./CommentPost";
+import CommentSection from "./CommentSection";
 
 const ArticleByID = () => {
   const [article, setArticle] = useState({});
@@ -36,8 +37,8 @@ const ArticleByID = () => {
           </div>
         </div>
       </article>
-      <CommentPost articleId={articleId} />
-      <CommentsList articleId={articleId} />
+
+      <CommentSection articleId={articleId} />
     </section>
   );
 };
