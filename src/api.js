@@ -32,7 +32,6 @@ export const getComments = (articleId) => {
 
 export const getUser = (username) => {
   return newsApi.get(`/users/${username}`).then(({ data }) => {
-    console.log(data);
     return data;
   });
 };
