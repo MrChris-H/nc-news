@@ -13,7 +13,7 @@ const CommentsList = ({ articleId }) => {
     });
   }, []);
 
-  if (isLoading) return <p>Comments Loading...</p>;
+  // if (isLoading) return <p>Comments Loading...</p>;
   return (
     <section id="section-comments-list">
       {comments.map((comment) => {

@@ -4,13 +4,17 @@ import { getUser } from "../api";
 const CommentsCard = ({ comment }) => {
   const date = new Date(comment.created_at);
   const [avatarUrl, setAvatarUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getUser(comment.author).then(({ user: { avatar_url } }) => {
       setAvatarUrl(avatar_url);
+      setIsLoading(false);
     });
   }, []);
 
+  if (isLoading) return <p>Comment Loading...</p>;
   return (
     <section className="section-comment-card">
       <div className="comment-card">
