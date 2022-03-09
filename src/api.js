@@ -23,3 +23,15 @@ export const getArticle = (id) => {
     return data;
   });
 };
+
+export const getComments = (articleId) => {
+  return newsApi.get(`/articles/${articleId}/comments`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getUser = (username) => {
+  return newsApi.get(`/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};
