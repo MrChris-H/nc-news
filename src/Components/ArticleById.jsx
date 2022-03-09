@@ -9,12 +9,20 @@ const ArticleByID = () => {
   const [article, setArticle] = useState({});
   const { articleId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [newComment, setNewComment] = useState({});
   useEffect(() => {
     getArticle(articleId).then(({ article }) => {
       setArticle(article);
       setIsLoading(false);
     });
   }, []);
+
+  const commented = (newComment) => {
+    setNewComment(newComment);
+    getArticle(articleId).then(({ article }) => {
+      setArticle(article);
+    });
+  };
 
   const date = new Date(article.created_at);
   if (isLoading) return <p>Loading ...</p>;
@@ -38,7 +46,12 @@ const ArticleByID = () => {
         </div>
       </article>
 
-      <CommentSection articleId={articleId} />
+      <CommentSection
+        articleId={articleId}
+        commentCount={article.comment_count}
+        commented={commented}
+        newComment={newComment}
+      />
     </section>
   );
 };

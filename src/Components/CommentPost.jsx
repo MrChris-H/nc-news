@@ -5,14 +5,13 @@ import { UserContext } from "../context/UserContext";
 
 const CommentPost = ({ articleId, commented }) => {
   const { loggedIn } = useContext(UserContext);
-  console.log(loggedIn);
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment !== "") {
       postComment(loggedIn.username, comment, articleId).then((added) => {
-        commented();
+        commented(added);
       });
     }
 

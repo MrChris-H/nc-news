@@ -24,10 +24,12 @@ export const getArticle = (id) => {
   });
 };
 
-export const getComments = (articleId) => {
-  return newsApi.get(`/articles/${articleId}/comments`).then(({ data }) => {
-    return data;
-  });
+export const getComments = (articleId, limit) => {
+  return newsApi
+    .get(`/articles/${articleId}/comments`, { params: { limit: limit } })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export const getUser = (username) => {
