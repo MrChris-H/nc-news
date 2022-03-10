@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import CommentPost from "./CommentPost";
 import CommentSection from "./CommentSection";
+import Votes from "./Vote";
 
 const ArticleByID = () => {
   const [article, setArticle] = useState({});
@@ -34,7 +35,7 @@ const ArticleByID = () => {
         <p>{article.body}</p>
         <div className="article-card-lower-bar">
           <div className="article-card-lower-bar article-card-votes">
-            <p>{article.votes}</p>
+            <Votes />
           </div>
           <div className="article-card-lower-bar article-card-creation">
             <p>{article.author}</p>
