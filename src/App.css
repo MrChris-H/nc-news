@@ -284,8 +284,8 @@ h4 {
   -webkit-transform: rotate(45deg);
 }
 
-.votes-arrow-container-top:hover,
-.votes-arrow-container-bottom:hover {
+.votes-arrow-container-top button:hover,
+.votes-arrow-container-bottom button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
