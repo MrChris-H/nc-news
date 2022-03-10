@@ -15,12 +15,12 @@ const NavMobile = (setTopicFilter) => {
   return (
     <div id="mobile-nav-bar">
       <div className="mobile-bar" id="mobile-bar-left"></div>
-      <div className="mobile-bar" id="flex-bar-center"></div>
+      <div className="mobile-bar flex-bar-center"></div>
       <div className="mobile-bar" id="mobile-bar-right">
         <div className="dropdown">
           <button className="dropbtn">
             Topic
-            <div className="mobile-bar" id="flex-bar-center"></div>
+            <div className="mobile-bar flex-bar-center"></div>
             <i className="arrow down"></i>
           </button>
           <div id="myDropdown" className="dropdown-content">
