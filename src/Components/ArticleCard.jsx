@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { patchArticle } from "../api";
+import Votes from "./Vote";
 const ArticleCard = ({ article }) => {
   const { title, topic, author, created_at, votes, comment_count } = article;
 
@@ -12,7 +14,11 @@ const ArticleCard = ({ article }) => {
       {/* <p>{topic}</p> */}
       <div className="article-card-lower-bar">
         <div className="article-card-lower-bar comments-card-votes">
-          <p>{votes}</p>
+          <Votes
+            votes={article.votes}
+            apiUpdate={patchArticle}
+            id={article.article_id}
+          />
         </div>
         <div className="flex-bar-center">
           <p>{author}</p>

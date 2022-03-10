@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getArticle } from "../api";
 import { useParams } from "react-router-dom";
-import CommentsList from "./CommentsList";
-import CommentPost from "./CommentPost";
+import { patchArticle } from "../api";
 import CommentSection from "./CommentSection";
 import Votes from "./Vote";
 
@@ -35,7 +34,11 @@ const ArticleByID = () => {
         <p>{article.body}</p>
         <div className="article-card-lower-bar">
           <div className="article-card-lower-bar article-card-votes">
-            <Votes />
+            <Votes
+              votes={article.votes}
+              apiUpdate={patchArticle}
+              id={articleId}
+            />
           </div>
           <div className="article-card-lower-bar article-card-creation">
             <p>{article.author}</p>

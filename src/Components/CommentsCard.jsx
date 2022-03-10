@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getUser } from "../api";
+import { getUser, patchComment } from "../api";
+import Votes from "./Vote";
 
 const CommentsCard = ({ comment }) => {
   const date = new Date(comment.created_at);
@@ -30,7 +31,11 @@ const CommentsCard = ({ comment }) => {
           <p className="comment-card-body">{comment.body}</p>
           <div className="comment-card-lower-bar">
             <div className="comment-card-lower-bar comment-card-votes">
-              <p>{comment.votes}</p>
+              <Votes
+                votes={comment.votes}
+                apiUpdate={patchComment}
+                id={comment.comment_id}
+              />
             </div>
             <div className="flex-bar-center"></div>
             <div className="comment-card-lower-bar comment-card-comments">

@@ -48,3 +48,18 @@ export const postComment = (username, comment, articleId) => {
       return data;
     });
 };
+
+export const patchArticle = (articleId, inc) => {
+  return newsApi
+    .patch(`/articles/${articleId}`, { inc_votes: inc })
+    .then(({ data }) => {
+      return data;
+    });
+};
+export const patchComment = (commentId, inc) => {
+  return newsApi
+    .patch(`/comments/${commentId}`, { inc_votes: inc })
+    .then(({ data }) => {
+      return data;
+    });
+};
