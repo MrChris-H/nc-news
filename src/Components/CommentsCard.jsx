@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUser, patchComment } from "../api";
+import { deleteComment, getUser, patchComment } from "../api";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import Votes from "./Vote";
@@ -9,7 +9,7 @@ const CommentsCard = ({ comment }) => {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { loggedIn } = useContext(UserContext);
-
+  const [deleted, setDeleted] = useState(false);
   useEffect(() => {
     setIsLoading(true);
     getUser(comment.author).then(({ user: { avatar_url } }) => {
@@ -18,9 +18,14 @@ const CommentsCard = ({ comment }) => {
     });
   }, []);
 
+  const handleClick = () => {
+    setDeleted(true);
+    deleteComment(comment.comment_id);
+  };
+
   if (isLoading) return <p>Comment Loading...</p>;
   return (
-    <section className="section-comment-card">
+    <section className={deleted ? "hidden" : "section-comment-card "}>
       <div className="comment-card">
         <div className="comment-card-avatar">
           <img
@@ -33,7 +38,14 @@ const CommentsCard = ({ comment }) => {
           <div className="comment-card-owner">
             <h4>{comment.author}</h4>
             <div className="flex-bar-center"></div>
-            <div className="comment-card-owner comment-card-owner-img-container">
+            <div
+              className={
+                comment.author !== loggedIn.username
+                  ? "hidden"
+                  : "comment-card-owner comment-card-owner-img-container"
+              }
+              onClick={handleClick}
+            >
               <img
                 src="https://www.transparentpng.com/thumb/red-cross/BtjHkS-symbol-clip-art-image-american-red-cross.png"
                 className="comment-card-owner-delete"
