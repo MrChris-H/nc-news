@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { getUser, patchComment } from "../api";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import Votes from "./Vote";
 
 const CommentsCard = ({ comment }) => {
   const date = new Date(comment.created_at);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { loggedIn } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,8 +29,17 @@ const CommentsCard = ({ comment }) => {
             className="comment-card-avatar-img"
           ></img>
         </div>
-        <div className=" comment-card-comment">
-          <h4>{comment.author}</h4>
+        <div className="comment-card-comment">
+          <div className="comment-card-owner">
+            <h4>{comment.author}</h4>
+            <div className="flex-bar-center"></div>
+            <div className="comment-card-owner comment-card-owner-img-container">
+              <img
+                src="https://www.transparentpng.com/thumb/red-cross/BtjHkS-symbol-clip-art-image-american-red-cross.png"
+                className="comment-card-owner-delete"
+              ></img>
+            </div>
+          </div>
           <p className="comment-card-body">{comment.body}</p>
           <div className="comment-card-lower-bar">
             <div className="comment-card-lower-bar comment-card-votes">
