@@ -19,7 +19,7 @@ const CommentPost = ({ articleId, commented }) => {
   };
 
   return (
-    <form id="form-comment-post" onSubmit={handleSubmit}>
+    <form id="form-comment-post" onSubmit={handleSubmit} autocomplete="off">
       <div className="comment-post-input">
         <div className="comment-post-avatar">
           <img
