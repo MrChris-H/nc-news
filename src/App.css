@@ -313,5 +313,14 @@ h4 {
 }
 
 .votes-arrow-container-bottom {
-  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.active-vote {
+  border-color: rgb(69, 88, 255);
+}
+
+.votes-arrow-container-top button,
+.votes-arrow-container-bottom button {
+background-color: rgb(255, 255, 255);
 }

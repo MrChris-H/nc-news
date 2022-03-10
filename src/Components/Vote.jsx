@@ -24,7 +24,13 @@ const Votes = ({ votes, apiUpdate, id }) => {
           handleVote(1, displayVotes);
         }}
       >
-        <button className="votes-arrow arrow up"></button>
+        <button
+          className={
+            displayVotes > 0
+              ? "votes-arrow arrow up active-vote"
+              : "votes-arrow arrow up"
+          }
+        ></button>
       </div>
 
       <span className="votes-number">{votes + displayVotes}</span>
@@ -34,7 +40,13 @@ const Votes = ({ votes, apiUpdate, id }) => {
           handleVote(-1, displayVotes);
         }}
       >
-        <button className="votes-arrow arrow down"></button>
+        <button
+          className={
+            displayVotes < 0
+              ? "votes-arrow arrow down active-vote"
+              : "votes-arrow arrow down"
+          }
+        ></button>
       </div>
     </>
   );
