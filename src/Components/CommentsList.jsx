@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { getComments } from "../api";
 import CommentsCard from "./CommentsCard";
 
-const CommentsList = ({ articleId }) => {
+const CommentsList = ({ articleId, newComment, commentLimit }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
-    getComments(articleId).then(({ comments }) => {
+    getComments(articleId, commentLimit).then(({ comments }) => {
       setComments(comments);
       setIsLoading(false);
     });
-  }, []);
+  }, [newComment, commentLimit]);
 
   // if (isLoading) return <p>Comments Loading...</p>;
   return (

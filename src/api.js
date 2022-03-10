@@ -24,14 +24,27 @@ export const getArticle = (id) => {
   });
 };
 
-export const getComments = (articleId) => {
-  return newsApi.get(`/articles/${articleId}/comments`).then(({ data }) => {
-    return data;
-  });
+export const getComments = (articleId, limit) => {
+  return newsApi
+    .get(`/articles/${articleId}/comments`, { params: { limit: limit } })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export const getUser = (username) => {
   return newsApi.get(`/users/${username}`).then(({ data }) => {
     return data;
   });
+};
+
+export const postComment = (username, comment, articleId) => {
+  return newsApi
+    .post(`articles/${articleId}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data;
+    });
 };

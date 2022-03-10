@@ -19,6 +19,10 @@ const ArticleCard = ({ article }) => {
           <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
         </div>
         <div className="article-card-lower-bar comments-card-date">
+          <img
+            src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
+            className="article-comments-img"
+          ></img>
           <p>{comment_count}</p>
         </div>
       </div>

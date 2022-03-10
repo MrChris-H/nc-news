@@ -2,17 +2,27 @@ import React, { useState, useEffect } from "react";
 import { getArticle } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
+import CommentPost from "./CommentPost";
+import CommentSection from "./CommentSection";
 
 const ArticleByID = () => {
   const [article, setArticle] = useState({});
   const { articleId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [newComment, setNewComment] = useState({});
   useEffect(() => {
     getArticle(articleId).then(({ article }) => {
       setArticle(article);
       setIsLoading(false);
     });
   }, []);
+
+  const commented = (newComment) => {
+    setNewComment(newComment);
+    getArticle(articleId).then(({ article }) => {
+      setArticle(article);
+    });
+  };
 
   const date = new Date(article.created_at);
   if (isLoading) return <p>Loading ...</p>;
@@ -31,11 +41,21 @@ const ArticleByID = () => {
             <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
           </div>
           <div className="article-card-lower-bar article-card-comments">
+            <img
+              src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
+              className="article-comments-img"
+            ></img>
             <p>{article.comment_count}</p>
           </div>
         </div>
       </article>
-      <CommentsList articleId={articleId} />
+
+      <CommentSection
+        articleId={articleId}
+        commentCount={article.comment_count}
+        commented={commented}
+        newComment={newComment}
+      />
     </section>
   );
 };
