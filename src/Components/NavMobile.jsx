@@ -10,6 +10,7 @@ const NavMobile = ({ setOrder, order, topicBar, setSort, sort }) => {
     author: "Author",
     votes: "Rated",
     title: "Title",
+    comment_count: "Comments",
   };
   useEffect(() => {
     getTopics().then(({ topics }) => {
@@ -32,7 +33,7 @@ const NavMobile = ({ setOrder, order, topicBar, setSort, sort }) => {
           <div className="mobile-bar flex-bar-center"></div>
           <i className="arrow down"></i>
         </button>
-        <div id="myDropdown" className="dropdown-content">
+        <div id="myDropdown" className="dropdown-content drop-content-sort">
           <div
             onClick={() => {
               handleClickSort("created_at");
@@ -60,6 +61,13 @@ const NavMobile = ({ setOrder, order, topicBar, setSort, sort }) => {
             }}
           >
             Title
+          </div>
+          <div
+            onClick={() => {
+              handleClickSort("comment_count");
+            }}
+          >
+            Comments
           </div>
         </div>
       </div>
