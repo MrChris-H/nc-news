@@ -29,6 +29,7 @@ const CommentPost = ({ articleId, commented }) => {
         <div className="comment-post-avatar">
           <img
             src={loggedIn.avatar_url}
+            alt="user avatar"
             className="comment-card-avatar-img"
           ></img>
         </div>

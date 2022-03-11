@@ -4,7 +4,7 @@ import { deleteArticle, patchArticle } from "../api";
 import Delete from "./Delete";
 import Votes from "./Vote";
 const ArticleCard = ({ article }) => {
-  const { title, topic, author, created_at, votes, comment_count } = article;
+  const { title, author, created_at, comment_count } = article;
   const [deleted, setDeleted] = useState(false);
   const date = new Date(created_at);
   return (
@@ -44,6 +44,7 @@ const ArticleCard = ({ article }) => {
         >
           <img
             src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
+            alt="comment icon"
             className="article-comments-img"
           ></img>
           <p>{comment_count}</p>

@@ -23,7 +23,7 @@ const ArticleByID = () => {
       .catch((err) => {
         setError({ err });
       });
-  }, []);
+  }, );
 
   const commented = (newComment) => {
     setNewComment(newComment);
@@ -85,7 +85,7 @@ const ArticleByID = () => {
           </div>
           <div className="article-card-lower-bar article-card-comments">
             <img
-              src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
+              src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg" alt="comment icon"
               className="article-comments-img"
             ></img>
             <p>{article.comment_count}</p>
