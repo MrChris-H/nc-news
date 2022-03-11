@@ -5,6 +5,7 @@ import { patchArticle } from "../api";
 import CommentSection from "./CommentSection";
 import Votes from "./Vote";
 import Delete from "./Delete";
+import ErrorPage from "./ErrorPage";
 
 const ArticleByID = () => {
   const [article, setArticle] = useState({});
@@ -12,11 +13,16 @@ const ArticleByID = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [newComment, setNewComment] = useState({});
   const [deleted, setDeleted] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    getArticle(articleId).then(({ article }) => {
-      setArticle(article);
-      setIsLoading(false);
-    });
+    getArticle(articleId)
+      .then(({ article }) => {
+        setArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, []);
 
   const commented = (newComment) => {
@@ -27,6 +33,14 @@ const ArticleByID = () => {
   };
 
   const date = new Date(article.created_at);
+  if (error) {
+    return (
+      <ErrorPage
+        msg={error.err.response.data.msg}
+        status={error.err.response.status}
+      />
+    );
+  }
   if (isLoading) return <p>Loading ...</p>;
 
   return (
