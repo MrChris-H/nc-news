@@ -5,6 +5,7 @@ import ArticlesList from "./Components/ArticlesList";
 import ArticleByID from "./Components/ArticleById";
 import { UserContext } from "./context/UserContext";
 import { useState } from "react";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState({
@@ -23,6 +24,7 @@ function App() {
             <Route path="/articles" element={<ArticlesList />} />
             <Route path="/articles/:topic" element={<ArticlesList />} />
             <Route path="/article/:articleId" element={<ArticleByID />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
       </BrowserRouter>
