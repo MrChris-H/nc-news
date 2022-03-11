@@ -14,7 +14,6 @@ const CommentSection = ({ articleId, commentCount, commented, newComment }) => {
 
   const moreComments = () => {
     const newCommentLimit = commentLimit + 10;
-    console.log(newCommentLimit);
     if (newCommentLimit >= commentCount) {
       setButtonHidden(true);
     }

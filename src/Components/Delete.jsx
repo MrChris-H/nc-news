@@ -8,7 +8,6 @@ const Delete = ({ createdBy,apiDelete, setDeleted, id }) => {
     setDeleted(true);
     apiDelete(id);
   };
-  console.log(createdBy, loggedIn.username);
   return (
     <div
       className={
