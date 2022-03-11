@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { getUser, patchComment } from "../api";
+import { deleteComment, getUser, patchComment } from "../api";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import Votes from "./Vote";
+import Delete from "./Delete";
 
 const CommentsCard = ({ comment }) => {
   const date = new Date(comment.created_at);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
+  const [deleted, setDeleted] = useState(false);
   useEffect(() => {
     setIsLoading(true);
     getUser(comment.author).then(({ user: { avatar_url } }) => {
@@ -17,7 +20,7 @@ const CommentsCard = ({ comment }) => {
 
   if (isLoading) return <p>Comment Loading...</p>;
   return (
-    <section className="section-comment-card">
+    <section className={deleted ? "hidden" : "section-comment-card "}>
       <div className="comment-card">
         <div className="comment-card-avatar">
           <img
@@ -26,8 +29,21 @@ const CommentsCard = ({ comment }) => {
             className="comment-card-avatar-img"
           ></img>
         </div>
-        <div className=" comment-card-comment">
-          <h4>{comment.author}</h4>
+        <div className="comment-card-comment">
+          <div className="comment-card-owner">
+            <div className="flex-stretch">
+              <h4>{comment.author}</h4>
+            </div>
+
+            <section>
+              <Delete
+                createdBy={comment.author}
+                setDeleted={setDeleted}
+                id={comment.comment_id}
+                apiDelete={deleteComment}
+              />
+            </section>
+          </div>
           <p className="comment-card-body">{comment.body}</p>
           <div className="comment-card-lower-bar">
             <div className="comment-card-lower-bar comment-card-votes">
