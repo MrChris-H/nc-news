@@ -33,7 +33,10 @@ const ArticleByID = () => {
     <section>
       <article className={deleted ? "hidden" : "article-card"}>
         <div className="article-card-owner">
-          <h2>{article.title}</h2>
+          <div className="flex-stretch">
+            <h2>{article.title}</h2>
+          </div>
+
           <Delete
             createdBy={article.author}
             setDeleted={setDeleted}

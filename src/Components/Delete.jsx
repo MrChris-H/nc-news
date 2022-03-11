@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const Delete = ({ createdBy,apiDelete, setDeleted, id }) => {
+const Delete = ({ createdBy, apiDelete, setDeleted, id }) => {
   const { loggedIn } = useContext(UserContext);
 
   const handleClick = () => {

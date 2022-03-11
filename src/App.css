@@ -189,7 +189,6 @@ h4 {
 }
 .flex-stretch {
   flex: 1 1 auto;
-
 }
 
 #section-comments-list {
@@ -248,12 +247,14 @@ h4 {
   max-width: 70%;
   max-height: 70%;
   width: 70%;
+  filter: grayscale(100%);
 }
 
 .comment-card-owner-img-container {
   padding: 5px;
   padding-bottom: 0px;
   padding-right: 0px;
+  height: 100%;
 }
 .comment-card-owner-img-container:hover {
   opacity: 0.6;

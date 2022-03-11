@@ -31,14 +31,18 @@ const CommentsCard = ({ comment }) => {
         </div>
         <div className="comment-card-comment">
           <div className="comment-card-owner">
-            <h4>{comment.author}</h4>
-            <div className="flex-bar-center"></div>
-            <Delete
-              createdBy={comment.author}
-              setDeleted={setDeleted}
-              id={comment.comment_id}
-              apiDelete={deleteComment}
-            />
+            <div className="flex-stretch">
+              <h4>{comment.author}</h4>
+            </div>
+
+            <section>
+              <Delete
+                createdBy={comment.author}
+                setDeleted={setDeleted}
+                id={comment.comment_id}
+                apiDelete={deleteComment}
+              />
+            </section>
           </div>
           <p className="comment-card-body">{comment.body}</p>
           <div className="comment-card-lower-bar">
