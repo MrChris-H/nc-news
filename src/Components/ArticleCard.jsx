@@ -30,8 +30,9 @@ const ArticleCard = ({ article }) => {
             id={article.article_id}
           />
         </div>
-        <div className="flex-bar-center">
+        <div className="flex-bar-center article-card-creation-details">
           <p>{author}</p>
+          <div className="flex-stretch"></div>
           <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
         </div>
         <div className="article-card-lower-bar comments-card-date">

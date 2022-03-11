@@ -151,7 +151,7 @@ h4 {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: rgb(212, 103, 103);
 }
 .arrow {
   border: solid rgb(0, 0, 0);
@@ -168,7 +168,7 @@ h4 {
 #mobile-nav-bar {
   display: flex;
   flex-direction: row;
-  background-color: rgb(131, 124, 124);
+  background-color: rgb(255, 163, 163);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -186,6 +186,8 @@ h4 {
   flex: 1 1 auto;
   margin-left: 10px;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
 }
 .flex-stretch {
   flex: 1 1 auto;
@@ -379,4 +381,13 @@ h4 {
 #order {
   height: 80%;
   width: 40px;
+}
+
+.article-card-creation-details {
+  font-size: 0.8rem;
+  padding: 1px 20px;
+  align-items: flex-end;
+}
+.article-card-creation-details p {
+  margin-bottom: 0px;
 }
