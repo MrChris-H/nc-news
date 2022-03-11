@@ -38,7 +38,9 @@ const CommentPost = ({ articleId, commented }) => {
         </div>
       </div>
       <div className="comment-post-submit">
-        <button type="submit">Comment</button>
+        <button type="submit" disabled={comment === ""}>
+          Comment
+        </button>
       </div>
     </form>
   );
