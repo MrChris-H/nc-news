@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { deleteComment, getUser, patchComment } from "../api";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 import Votes from "./Vote";
 import Delete from "./Delete";
 
