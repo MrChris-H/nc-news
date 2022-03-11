@@ -429,8 +429,8 @@ a:hover {
 }
 
 @media only screen and (min-width: 600px) {
-  #mobile-nav-bar,
-  .article_id-nav-bar {
+  .article_id-nav-bar,
+  #mobile-bar-right {
     display: none;
   }
   #section-articles-list {
