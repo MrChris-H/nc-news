@@ -390,4 +390,16 @@ h4 {
 }
 .article-card-creation-details p {
   margin-bottom: 0px;
+  text-decoration: none;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  cursor: pointer;
 }
