@@ -21,7 +21,7 @@ const CommentSection = ({ articleId, commentCount, commented, newComment }) => {
     setCommentLimit(newCommentLimit);
   };
   return (
-    <section>
+    <>
       <CommentPost articleId={articleId} commented={commented} />
       <CommentsList
         articleId={articleId}
@@ -35,7 +35,7 @@ const CommentSection = ({ articleId, commentCount, commented, newComment }) => {
       >
         More comments
       </button>
-    </section>
+    </>
   );
 };
 

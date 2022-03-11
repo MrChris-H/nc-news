@@ -1,15 +1,25 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { patchArticle } from "../api";
+import { deleteArticle, patchArticle } from "../api";
+import Delete from "./Delete";
 import Votes from "./Vote";
 const ArticleCard = ({ article }) => {
   const { title, topic, author, created_at, votes, comment_count } = article;
-
+  const [deleted, setDeleted] = useState(false);
   const date = new Date(created_at);
   return (
-    <article className="article-card">
-      <Link to={`/article/${article.article_id}`}>
-        <h4>{title}</h4>
-      </Link>
+    <article className={deleted ? "hidden" : "article-card"}>
+      <div className="article-card-owner">
+        <Link to={`/article/${article.article_id}`} className="flex-stretch">
+          <h4>{title}</h4>
+        </Link>
+        <Delete
+          createdBy={article.author}
+          setDeleted={setDeleted}
+          id={article.article_id}
+          apiDelete={deleteArticle}
+        />
+      </div>
 
       {/* <p>{topic}</p> */}
       <div className="article-card-lower-bar">

@@ -64,7 +64,9 @@ export const patchComment = (commentId, inc) => {
     });
 };
 export const deleteComment = (commentId) => {
-  return newsApi.delete(`/comments/${commentId}`).then(({ data }) => {
-    console.log(data);
-  });
+  return newsApi.delete(`/comments/${commentId}`).then(() => {});
+};
+
+export const deleteArticle = (articleId) => {
+  return newsApi.delete(`/articles/${articleId}`).then(({ data }) => {});
 };
