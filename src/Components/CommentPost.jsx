@@ -6,6 +6,7 @@ import { UserContext } from "../context/UserContext";
 const CommentPost = ({ articleId, commented }) => {
   const { loggedIn } = useContext(UserContext);
   const [comment, setComment] = useState("");
+  const [show, setShow] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,10 @@ const CommentPost = ({ articleId, commented }) => {
     }
 
     setComment("");
+  };
+  const handleFocus = (e) => {
+    e.preventDefault();
+    setShow(true);
   };
 
   return (
@@ -34,10 +39,11 @@ const CommentPost = ({ articleId, commented }) => {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="Add a comment..."
+            onFocus={handleFocus}
           />
         </div>
       </div>
-      <div className="comment-post-submit">
+      <div className={show ? "comment-post-submit" : "hidden"}>
         <button type="submit" disabled={comment === ""}>
           Comment
         </button>
