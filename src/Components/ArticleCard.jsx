@@ -7,6 +7,9 @@ const ArticleCard = ({ article }) => {
   const { title, author, created_at, comment_count } = article;
   const [deleted, setDeleted] = useState(false);
   const date = new Date(created_at);
+ 
+ 
+ 
   return (
     <article className={deleted ? "hidden" : "article-card"}>
       <div className="article-card-owner">

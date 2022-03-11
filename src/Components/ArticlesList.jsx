@@ -12,18 +12,27 @@ const ArticlesList = () => {
   const [sort, setSort] = useState("created_at");
   const { topic } = useParams();
   const [error, setError] = useState(null);
+  const [articleLimit, setArticleLimit] = useState(10);
+  const [buttonHidden, setButtonHidden] = useState(false);
+  const [first, setFirst] = useState(true);
   useEffect(() => {
-    setIsLoading(true);
-    getArticles(topic, sort, order)
+    if (first) {
+      setIsLoading(true);
+    }
+    getArticles(topic, sort, order, articleLimit)
       .then(({ articles }) => {
         setArticles(articles);
         setError(null);
         setIsLoading(false);
+        setFirst(false);
       })
-      .catch((err) => {
-        setError({ err });
-      });
-  }, [topic, sort, order]);
+      .catch(
+        (err) => {
+          setError({ err });
+        },
+        [articleLimit]
+      );
+  }, [topic, sort, order, articleLimit]);
   if (error) {
     return (
       <ErrorPage
@@ -32,6 +41,15 @@ const ArticlesList = () => {
       />
     );
   }
+  const moreArticles = () => {
+    const newArticleLimit = articleLimit + 10;
+    console.log(articles.length, newArticleLimit);
+    if (newArticleLimit >= articles.length + 11) {
+      setButtonHidden(true);
+    }
+    setArticleLimit(newArticleLimit);
+  };
+
   if (isLoading) return <p>Loading ...</p>;
   return (
     <section id="section-articles-list">
@@ -45,6 +63,13 @@ const ArticlesList = () => {
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
+      <button
+        type="button"
+        onClick={moreArticles}
+        className={buttonHidden ? "hidden" : null}
+      >
+        More Articles
+      </button>
     </section>
   );
 };
