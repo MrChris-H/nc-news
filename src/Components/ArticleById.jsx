@@ -44,7 +44,7 @@ const ArticleByID = () => {
   if (isLoading) return <p>Loading ...</p>;
 
   return (
-    <section>
+    <section className="main">
       <section className="flex-bar article_id-nav-bar">
         <Link to="/">
           <button>Home</button>

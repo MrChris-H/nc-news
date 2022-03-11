@@ -1,8 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { getTopics } from "../api";
+import TopicCard from "./TopicCard";
 const Header = () => {
   const { loggedIn } = useContext(UserContext);
+  const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    getTopics().then(({ topics }) => {
+      setTopics(topics);
+    });
+  }, []);
   return (
     <header>
       <div id="head-bar">
@@ -15,7 +23,16 @@ const Header = () => {
             ></img>
           </Link>
         </div>
-        <div className="head-bar" id="head-bar-center"></div>
+        <div className="head-bar" id="head-bar-center">
+          <nav id="monitor-nav">
+            <Link to={`/articles`} className="monitor-nav-container">
+              <p>Articles</p>
+            </Link>
+            {topics.map((topic) => {
+              return <TopicCard key={topic.slug} topic={topic} />;
+            })}
+          </nav>
+        </div>
         <div className="head-bar" id="head-bar-right">
           <div className="profile">
             <img

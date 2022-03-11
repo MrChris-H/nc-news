@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+#monitor-nav {
+  display: none;
+}
 #head-bar {
   display: flex;
   flex-direction: row;
@@ -25,6 +27,7 @@
   flex: 1 1 auto;
   margin-left: 10px;
   margin-right: 10px;
+  justify-content: center;
 }
 
 .head-bar-button-img {
@@ -418,6 +421,39 @@ a:hover {
 
 .article_id-nav-bar button {
   text-transform: capitalize;
-  padding: 0.4rem;
+  padding: 0.2rem 0.4rem;
   background-color: #efefef;
+  border-radius: 5px;
+  border: 1px black solid;
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  #mobile-nav-bar,
+  .article_id-nav-bar {
+    display: none;
+  }
+  #section-articles-list {
+    padding: 0px 10rem;
+  }
+  .main {
+    padding: 0px 10rem;
+  }
+  #monitor-nav {
+    display: flex;
+    flex: 1 1 auto;
+    text-transform: capitalize;
+    align-items: center;
+  }
+  .monitor-nav-container {
+    flex: 1 1 auto;
+    border-left: #00000083 1px solid;
+    border-right: #00000083 1px solid;
+    font-size: 1.5rem;
+  }
+  .monitor-nav-container p {
+    font-size: 1.5rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
