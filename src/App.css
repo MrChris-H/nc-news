@@ -22,7 +22,6 @@
 }
 
 #head-bar-center {
-  background-color: rgb(212, 103, 103);
   flex: 1 1 auto;
   margin-left: 10px;
   margin-right: 10px;
@@ -181,7 +180,12 @@ h4 {
   flex-direction: row;
   width: auto;
 }
-
+.flex-bar {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  padding: 10px 10px;
+}
 .flex-bar-center {
   flex: 1 1 auto;
   margin-left: 10px;
@@ -402,4 +406,9 @@ a:active {
 
 a:hover {
   cursor: pointer;
+}
+
+.article_id-nav-bar {
+  margin-top: 1rem;
+  background-color: rgb(255, 163, 163);
 }
