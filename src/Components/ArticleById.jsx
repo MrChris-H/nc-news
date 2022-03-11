@@ -78,8 +78,9 @@ const ArticleByID = () => {
               id={articleId}
             />
           </div>
-          <div className="article-card-lower-bar article-card-creation">
+          <div className="flex-bar-center article-card-creation-details">
             <p>{article.author}</p>
+            <div className="flex-stretch"></div>
             <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
           </div>
           <div className="article-card-lower-bar article-card-comments">

@@ -89,7 +89,7 @@ h4 {
 
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: #ffffff;
+  background-color: #efefef;
   text-align: left;
   color: rgb(0, 0, 0);
   border: black solid 1px;
@@ -383,8 +383,9 @@ h4 {
 }
 
 #order {
-  height: 80%;
+  height: 84%;
   width: 40px;
+  cursor: pointer;
 }
 
 .article-card-creation-details {
@@ -411,4 +412,12 @@ a:hover {
 .article_id-nav-bar {
   margin-top: 1rem;
   background-color: rgb(255, 163, 163);
+  height: 1rem;
+  align-items: center;
+}
+
+.article_id-nav-bar button {
+  text-transform: capitalize;
+  padding: 0.4rem;
+  background-color: #efefef;
 }
