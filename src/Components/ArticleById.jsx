@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { deleteArticle, getArticle } from "../api";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { patchArticle } from "../api";
 import CommentSection from "./CommentSection";
 import Votes from "./Vote";
@@ -44,7 +44,17 @@ const ArticleByID = () => {
   if (isLoading) return <p>Loading ...</p>;
 
   return (
-    <section>
+    <section className="main">
+      <section className="flex-bar article_id-nav-bar">
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+        <div className="flex-stretch"></div>
+        <Link to={`/articles/${article.topic}`}>
+          <button>{article.topic}</button>
+        </Link>
+      </section>
+
       <article className={deleted ? "hidden" : "article-card"}>
         <div className="article-card-owner">
           <div className="flex-stretch">
@@ -68,8 +78,9 @@ const ArticleByID = () => {
               id={articleId}
             />
           </div>
-          <div className="article-card-lower-bar article-card-creation">
+          <div className="flex-bar-center article-card-creation-details">
             <p>{article.author}</p>
+            <div className="flex-stretch"></div>
             <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
           </div>
           <div className="article-card-lower-bar article-card-comments">

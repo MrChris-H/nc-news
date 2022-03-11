@@ -30,17 +30,24 @@ const ArticleCard = ({ article }) => {
             id={article.article_id}
           />
         </div>
-        <div className="flex-bar-center">
+        <Link
+          to={`/article/${article.article_id}`}
+          className="flex-bar-center article-card-creation-details"
+        >
           <p>{author}</p>
+          <div className="flex-stretch"></div>
           <p>{`${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`}</p>
-        </div>
-        <div className="article-card-lower-bar comments-card-date">
+        </Link>
+        <Link
+          to={`/article/${article.article_id}`}
+          className="article-card-lower-bar comments-card-date"
+        >
           <img
             src="https://icon-library.com/images/icon-comments/icon-comments-18.jpg"
             className="article-comments-img"
           ></img>
           <p>{comment_count}</p>
-        </div>
+        </Link>
       </div>
     </article>
   );

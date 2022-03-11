@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-const TopicCard = ({ topic: { slug }}) => {
+const TopicCard = ({ topic: { slug } }) => {
   return (
-    <div>
-      <Link to={`/articles/${slug}`}>{slug}</Link>
-    </div>
+    <Link to={`/articles/${slug}`} className="monitor-nav-container">
+      <p>{slug}</p>
+    </Link>
   );
 };
 
