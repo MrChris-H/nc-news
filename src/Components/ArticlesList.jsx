@@ -12,11 +12,13 @@ const ArticlesList = () => {
   const [sort, setSort] = useState("created_at");
   const { topic } = useParams();
   const [error, setError] = useState(null);
+  console.log(error, "<<<<<<<<<<<<<<<<");
   useEffect(() => {
     setIsLoading(true);
     getArticles(topic, sort, order)
       .then(({ articles }) => {
         setArticles(articles);
+        setError(null);
         setIsLoading(false);
       })
       .catch((err) => {
