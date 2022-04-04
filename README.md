@@ -1,7 +1,7 @@
 
 # [North News](https://north-news.netlify.app/)
 
-The [North News](https://north-news.netlify.app/) front-end JS project integrates with the [NC-News-Chris API](https://github.com/MrChris-H/nc-news-chris) API to generate a news article website that includes comments and likes and dislikes. Project includes: 
+The [North News](https://north-news.netlify.app/) front-end JS project integrates with the [NC-News-Chris API](https://github.com/MrChris-H/nc-news-chris) API to generate a news article website that includes comments and likes and dislikes. Account jessJelly is automatically logged in. Project includes: 
 
   - View List of Articles
   - Filter by Article Topic
