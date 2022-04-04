@@ -51,4 +51,4 @@ node - v17.3.0\
 
 ## Tech Stack
 
-**App:** Node, React
+**App:** Node, React, HTML, CSS
